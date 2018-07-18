@@ -3,6 +3,7 @@ namespace Delatlantik\RichFormSymfonyBundle\Form;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class InputTypeExtension extends AbstractTypeExtension
 {
@@ -15,5 +16,10 @@ class InputTypeExtension extends AbstractTypeExtension
     public function getExtendedType()
     {
         return TextType::class;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefined(['ico']);
     }
 }

@@ -4,6 +4,7 @@ namespace Tests;
 use Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension;
 use Delatlantik\RichFormSymfonyBundle\Tests\App\AppKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Forms;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -23,11 +24,19 @@ class RichFormTest extends WebTestCase
         $formFactory = Forms::createFormFactoryBuilder()
             ->getFormFactory();
         $formBuilder = $formFactory->createBuilder();
-        $formBuilder->add('input', InputTypeExtension::class, ['data_class' => 'ABC']);
+        $formBuilder->add('input', TextType::class, [
+            'ico' => 'pencil'
+        ]);
 
         $form = $formBuilder->getForm();
 
-        $kernel->getContainer()->get('twig');
+        $html = $kernel
+            ->getContainer()
+            ->get('twig')
+            ->render('view.html.twig', array(
+                'form' => $form->createView()
+            ));
+        var_dump($html);
     /*
         $twig = new Environment(new FilesystemLoader(array(
 

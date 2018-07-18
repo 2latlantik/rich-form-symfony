@@ -4,6 +4,7 @@ namespace Delatlantik\RichFormSymfonyBundle\Tests\App;
 use Delatlantik\RichFormSymfonyBundle\DelatlantikRichFormSymfonyBundle;
 
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -19,6 +20,7 @@ class AppKernel extends Kernel
     {
         return [
             new FrameworkBundle(),
+            new TwigBundle(),
             new DelatlantikRichFormSymfonyBundle()
         ];
     }
@@ -29,5 +31,10 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__ . '/config/config.yml');
+    }
+
+    public function getProjectDir()
+    {
+        return realpath(__DIR__);
     }
 }

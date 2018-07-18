@@ -2,3 +2,8 @@ framework:
   secret: abcd
   test: ~
   form: true
+
+twig:
+  paths: ['%kernel.project_dir%/templates']
+  form_themes:
+      - bootstrap_4_layout.html.twig

@@ -16,7 +16,7 @@ class DelatlantikRichFormSymfonyExtension extends Extension
             $container,
             new FileLocator(__DIR__.'/../Resources/config/')
         );
-        $loader->load('services.yaml');
+        $loader->load('services.yml');
     }
 
 }

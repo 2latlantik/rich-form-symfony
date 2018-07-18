@@ -2,7 +2,7 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
     <parameter key="kernel.root_dir">C:\wamp64\www\RichFormSymfony\tests\App</parameter>
-    <parameter key="kernel.project_dir">C:\wamp64\www\RichFormSymfony</parameter>
+    <parameter key="kernel.project_dir">C:\wamp64\www\RichFormSymfony\tests\App</parameter>
     <parameter key="kernel.environment">test</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">App</parameter>
@@ -10,12 +10,17 @@
     <parameter key="kernel.logs_dir">C:\wamp64\www\RichFormSymfony\tests\App\logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
+      <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
       <parameter key="DelatlantikRichFormSymfonyBundle">Delatlantik\RichFormSymfonyBundle\DelatlantikRichFormSymfonyBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
         <parameter key="path">C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
+      </parameter>
+      <parameter key="TwigBundle" type="collection">
+        <parameter key="path">C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="DelatlantikRichFormSymfonyBundle" type="collection">
         <parameter key="path">C:\wamp64\www\RichFormSymfony\src</parameter>
@@ -40,6 +45,12 @@
     <parameter key="data_collector.templates" type="collection"/>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.container.dump">C:\wamp64\www\RichFormSymfony\tests\App\cache\test/AppTestDebugProjectContainer.xml</parameter>
+    <parameter key="twig.exception_listener.controller">twig.controller.exception::showAction</parameter>
+    <parameter key="twig.form.resources" type="collection">
+      <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_4_layout.html.twig</parameter>
+    </parameter>
+    <parameter key="twig.default_path">C:\wamp64\www\RichFormSymfony\tests\App/templates</parameter>
     <parameter key="console.command.ids" type="collection"/>
   </parameters>
   <services>
@@ -510,6 +521,36 @@
         <argument key="annotations.cache_warmer" type="service" id="annotations.cache_warmer" on-invalid="ignore_uninitialized"/>
         <argument key="annotations.cache" type="service" id="annotations.cache" on-invalid="ignore_uninitialized"/>
         <argument key="property_accessor" type="service" id="property_accessor" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.app_variable" type="service" id="twig.app_variable" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.cache_warmer" type="service" id="twig.cache_warmer" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.template_iterator" type="service" id="twig.template_iterator" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.template_cache_warmer" type="service" id="twig.template_cache_warmer" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.loader.native_filesystem" type="service" id="twig.loader.native_filesystem" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.loader.chain" type="service" id="twig.loader.chain" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.profiler" type="service" id="twig.extension.profiler" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.profile" type="service" id="twig.profile" on-invalid="ignore_uninitialized"/>
+        <argument key="data_collector.twig" type="service" id="data_collector.twig" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.trans" type="service" id="twig.extension.trans" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.assets" type="service" id="twig.extension.assets" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.code" type="service" id="twig.extension.code" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.routing" type="service" id="twig.extension.routing" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.yaml" type="service" id="twig.extension.yaml" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.debug.stopwatch" type="service" id="twig.extension.debug.stopwatch" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.expression" type="service" id="twig.extension.expression" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.httpkernel" type="service" id="twig.extension.httpkernel" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.runtime.httpkernel" type="service" id="twig.runtime.httpkernel" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.httpfoundation" type="service" id="twig.extension.httpfoundation" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.debug" type="service" id="twig.extension.debug" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.weblink" type="service" id="twig.extension.weblink" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.translation.extractor" type="service" id="twig.translation.extractor" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.exception_listener" type="service" id="twig.exception_listener" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.configurator.environment" type="service" id="twig.configurator.environment" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.runtime_loader" type="service" id="twig.runtime_loader" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.extension.form" type="service" id="twig.extension.form" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.form.engine" type="service" id="twig.form.engine" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.form.renderer" type="service" id="twig.form.renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.command.debug" type="service" id="twig.command.debug" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.command.lint" type="service" id="twig.command.lint" on-invalid="ignore_uninitialized"/>
         <argument key="Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension" type="service" id="Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension" on-invalid="ignore_uninitialized"/>
         <argument key="debug.argument_resolver.request_attribute" type="service" id="debug.argument_resolver.request_attribute" on-invalid="ignore_uninitialized"/>
         <argument key="debug.argument_resolver.request" type="service" id="debug.argument_resolver.request" on-invalid="ignore_uninitialized"/>
@@ -555,7 +596,11 @@
         <argument key="annotation_reader" type="service" id="annotations.cached_reader" on-invalid="ignore_uninitialized"/>
         <argument key="Doctrine\Common\Annotations\Reader" type="service" id="annotations.cached_reader" on-invalid="ignore_uninitialized"/>
         <argument key="Symfony\Component\PropertyAccess\PropertyAccessorInterface" type="service" id="property_accessor" on-invalid="ignore_uninitialized"/>
+        <argument key="Twig_Environment" type="service" id="twig" on-invalid="ignore_uninitialized"/>
+        <argument key="Twig\Environment" type="service" id="twig" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver.controller_locator" type="service" id=".service_locator.9_yeNH1" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.loader.filesystem" type="service" id="twig.loader.native_filesystem" on-invalid="ignore_uninitialized"/>
+        <argument key="twig.loader" type="service" id="twig.loader.native_filesystem" on-invalid="ignore_uninitialized"/>
         <argument key="Psr\Log\LoggerInterface" type="service" id="logger" on-invalid="ignore_uninitialized"/>
         <argument key="controller_resolver" type="service" id="debug.controller_resolver" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver" type="service" id="debug.argument_resolver" on-invalid="ignore_uninitialized"/>
@@ -834,6 +879,22 @@
         </argument>
         <argument>2048</argument>
       </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="twig.exception_listener"/>
+          <argument>logKernelException</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="twig.exception_listener"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -889,6 +950,264 @@
       <argument>false</argument>
       <argument>false</argument>
       <argument type="service" id="cache.property_access" on-invalid="ignore"/>
+    </service>
+    <service id="twig" class="Twig\Environment" public="true">
+      <argument type="service" id="twig.loader.native_filesystem"/>
+      <argument type="collection">
+        <argument key="paths" type="collection">
+          <argument key="C:\wamp64\www\RichFormSymfony\tests\App/templates">null</argument>
+        </argument>
+        <argument key="form_themes" type="collection">
+          <argument>form_div_layout.html.twig</argument>
+          <argument>bootstrap_4_layout.html.twig</argument>
+        </argument>
+        <argument key="exception_controller">twig.controller.exception::showAction</argument>
+        <argument key="autoescape">name</argument>
+        <argument key="cache">C:\wamp64\www\RichFormSymfony\tests\App\cache\test/twig</argument>
+        <argument key="charset">UTF-8</argument>
+        <argument key="debug">true</argument>
+        <argument key="strict_variables">false</argument>
+        <argument key="default_path">C:\wamp64\www\RichFormSymfony\tests\App/templates</argument>
+        <argument key="date" type="collection">
+          <argument key="format">F j, Y H:i</argument>
+          <argument key="interval_format">%d days</argument>
+          <argument key="timezone">null</argument>
+        </argument>
+        <argument key="number_format" type="collection">
+          <argument key="decimals">0</argument>
+          <argument key="decimal_point">.</argument>
+          <argument key="thousands_separator">,</argument>
+        </argument>
+      </argument>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.profiler"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.trans"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.code"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.yaml"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.debug.stopwatch"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.expression"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.httpkernel"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.httpfoundation"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.form"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.debug"/>
+      </call>
+      <call method="addGlobal">
+        <argument>app</argument>
+        <argument type="service" id="twig.app_variable"/>
+      </call>
+      <call method="addRuntimeLoader">
+        <argument type="service" id="twig.runtime_loader"/>
+      </call>
+      <configurator service="twig.configurator.environment" method="configure"/>
+    </service>
+    <service id="twig.app_variable" class="Symfony\Bridge\Twig\AppVariable" public="false">
+      <call method="setEnvironment">
+        <argument>test</argument>
+      </call>
+      <call method="setDebug">
+        <argument>true</argument>
+      </call>
+      <call method="setRequestStack">
+        <argument type="service" id="request_stack" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="twig.cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <tag name="container.service_subscriber" id="twig"/>
+      <argument type="service" id=".service_locator.UEpceA5.twig.cache_warmer"/>
+      <argument>null</argument>
+      <argument type="collection">
+        <argument key="C:\wamp64\www\RichFormSymfony\tests\App/templates">null</argument>
+        <argument key="C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form">null</argument>
+      </argument>
+    </service>
+    <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
+      <argument type="service" id="kernel"/>
+      <argument>C:\wamp64\www\RichFormSymfony\tests\App</argument>
+      <argument type="collection">
+        <argument key="C:\wamp64\www\RichFormSymfony\tests\App/templates">null</argument>
+        <argument key="C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form">null</argument>
+      </argument>
+    </service>
+    <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <tag name="container.service_subscriber" id="twig"/>
+      <argument type="service" id=".service_locator.UEpceA5.twig.template_cache_warmer"/>
+      <argument type="service" id="twig.template_iterator"/>
+    </service>
+    <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader" public="false">
+      <tag name="twig.loader"/>
+      <argument type="collection"/>
+      <argument>C:\wamp64\www\RichFormSymfony\tests\App</argument>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\tests\App/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>!Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>!Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\src/Resources/views</argument>
+        <argument>DelatlantikRichFormSymfony</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\src/Resources/views</argument>
+        <argument>!DelatlantikRichFormSymfony</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\tests\App/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\RichFormSymfony\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+      </call>
+    </service>
+    <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
+    <service id="twig.extension.profiler" class="Symfony\Bridge\Twig\Extension\ProfilerExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="twig.profile"/>
+      <argument type="service" id="debug.stopwatch" on-invalid="null"/>
+    </service>
+    <service id="twig.profile" class="Twig\Profiler\Profile" public="false"/>
+    <service id="data_collector.twig" class="Symfony\Bridge\Twig\DataCollector\TwigDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/twig.html.twig" id="twig" priority="257"/>
+      <argument type="service" id="twig.profile"/>
+      <argument type="service" id="twig"/>
+    </service>
+    <service id="twig.extension.trans" class="Symfony\Bridge\Twig\Extension\TranslationExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="translator" on-invalid="null"/>
+    </service>
+    <service id="twig.extension.assets" class="Symfony\Bridge\Twig\Extension\AssetExtension" public="false">
+      <argument type="service" id="assets.packages"/>
+    </service>
+    <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
+      <argument>C:\wamp64\www\RichFormSymfony\tests\App</argument>
+      <argument>UTF-8</argument>
+    </service>
+    <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
+      <argument type="service" id="router"/>
+    </service>
+    <service id="twig.extension.yaml" class="Symfony\Bridge\Twig\Extension\YamlExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="twig.extension.debug.stopwatch" class="Symfony\Bridge\Twig\Extension\StopwatchExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
+      <argument>true</argument>
+    </service>
+    <service id="twig.extension.expression" class="Symfony\Bridge\Twig\Extension\ExpressionExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="twig.extension.httpkernel" class="Symfony\Bridge\Twig\Extension\HttpKernelExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="twig.runtime.httpkernel" class="Symfony\Bridge\Twig\Extension\HttpKernelRuntime" public="false">
+      <tag name="twig.runtime"/>
+      <argument type="service" id="fragment.handler"/>
+    </service>
+    <service id="twig.extension.httpfoundation" class="Symfony\Bridge\Twig\Extension\HttpFoundationExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="request_stack"/>
+      <argument>null</argument>
+    </service>
+    <service id="twig.extension.debug" class="Twig\Extension\DebugExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="twig.extension.weblink" class="Symfony\Bridge\Twig\Extension\WebLinkExtension" public="false">
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor" public="false">
+      <tag name="translation.extractor" alias="twig"/>
+      <argument type="service" id="twig"/>
+    </service>
+    <service id="twig.exception_listener" class="Symfony\Component\HttpKernel\EventListener\ExceptionListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="monolog.logger" channel="request"/>
+      <argument>twig.controller.exception::showAction</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <argument>true</argument>
+    </service>
+    <service id="twig.controller.exception" class="Symfony\Bundle\TwigBundle\Controller\ExceptionController" public="true">
+      <argument type="service" id="twig"/>
+      <argument>true</argument>
+    </service>
+    <service id="twig.controller.preview_error" class="Symfony\Bundle\TwigBundle\Controller\PreviewErrorController" public="true">
+      <argument type="service" id="http_kernel"/>
+      <argument>twig.controller.exception::showAction</argument>
+    </service>
+    <service id="twig.configurator.environment" class="Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator" public="false">
+      <argument>F j, Y H:i</argument>
+      <argument>%d days</argument>
+      <argument>null</argument>
+      <argument>0</argument>
+      <argument>.</argument>
+      <argument>,</argument>
+    </service>
+    <service id="twig.runtime_loader" class="Twig\RuntimeLoader\ContainerRuntimeLoader" public="false">
+      <argument type="service" id=".service_locator.WOSHvMv"/>
+    </service>
+    <service id="twig.extension.form" class="Symfony\Bridge\Twig\Extension\FormExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="collection">
+        <argument type="service" id="service_container"/>
+        <argument>twig.form.renderer</argument>
+      </argument>
+    </service>
+    <service id="twig.form.engine" class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
+      <argument>%twig.form.resources%</argument>
+      <argument type="service" id="twig"/>
+    </service>
+    <service id="twig.form.renderer" class="Symfony\Component\Form\FormRenderer" public="false">
+      <tag name="twig.runtime"/>
+      <argument type="service" id="twig.form.engine"/>
+      <argument>null</argument>
+    </service>
+    <service id="twig.command.debug" class="Symfony\Bridge\Twig\Command\DebugCommand" public="false">
+      <tag name="console.command" command="debug:twig"/>
+      <argument type="service" id="twig"/>
+      <argument>C:\wamp64\www\RichFormSymfony\tests\App</argument>
+      <call method="setName">
+        <argument>debug:twig</argument>
+      </call>
+    </service>
+    <service id="twig.command.lint" class="Symfony\Bundle\TwigBundle\Command\LintCommand" public="false">
+      <tag name="console.command" command="lint:twig"/>
+      <argument type="service" id="twig"/>
+      <call method="setName">
+        <argument>lint:twig</argument>
+      </call>
     </service>
     <service id="Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension" class="Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension">
       <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\TextType"/>
@@ -966,6 +1285,22 @@
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
+    <service id=".service_locator.UEpceA5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="twig" type="service" id="twig"/>
+      </argument>
+    </service>
+    <service id=".service_locator.UEpceA5.twig.cache_warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>twig.cache_warmer</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.UEpceA5" method="withContext"/>
+    </service>
+    <service id=".service_locator.UEpceA5.twig.template_cache_warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>twig.template_cache_warmer</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.UEpceA5" method="withContext"/>
+    </service>
     <service id=".service_locator.Y2ZPhFq" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -975,7 +1310,7 @@
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.xxN8AGx"/>
+      <argument type="service" id=".service_locator.0KDEnkW"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -992,9 +1327,11 @@
         <argument key="lint:xliff">console.command.xliff_lint</argument>
         <argument key="lint:yaml">console.command.yaml_lint</argument>
         <argument key="debug:form">console.command.form_debug</argument>
+        <argument key="debug:twig">twig.command.debug</argument>
+        <argument key="lint:twig">twig.command.lint</argument>
       </argument>
     </service>
-    <service id=".service_locator.xxN8AGx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.0KDEnkW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -1012,6 +1349,15 @@
         <argument key="console.command.form_debug" type="service" id="console.command.form_debug"/>
         <argument key="console.command.xliff_lint" type="service" id="console.command.xliff_lint"/>
         <argument key="console.command.yaml_lint" type="service" id="console.command.yaml_lint"/>
+        <argument key="twig.command.debug" type="service" id="twig.command.debug"/>
+        <argument key="twig.command.lint" type="service" id="twig.command.lint"/>
+      </argument>
+    </service>
+    <service id=".service_locator.WOSHvMv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="Symfony\Bridge\Twig\Extension\HttpKernelRuntime" type="service" id="twig.runtime.httpkernel"/>
+        <argument key="Symfony\Component\Form\FormRenderer" type="service" id="twig.form.renderer"/>
       </argument>
     </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
@@ -1043,7 +1389,11 @@
     <service id="annotation_reader" alias="annotations.cached_reader"/>
     <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
     <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
+    <service id="Twig_Environment" alias="twig" public="false"/>
+    <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.9_yeNH1"/>
+    <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
+    <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
     <service id=".service_locator.XzhyEv6" alias=".1_ServiceLocator~GuE9rGR" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
