@@ -9,7 +9,7 @@
   ],
   "licence": "MIT",
   "require": {
-    "symfony/symfony": "^4.1",
+    "symfony/symfony": "^4.1.1",
     "symfony/form": "^4.1"
   },
   "require-dev": {
