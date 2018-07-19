@@ -22,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Delatlantik\\RichFormSymfonyBundle\\": "src/"
+      "Delatlantik\\RichFormSymfonyBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Delatlantik\\RichFormSymfonyBundle\\Tests\\": "tests/"
+      "Delatlantik\\RichFormSymfonyBundle\\Tests\\": "Tests/"
     }
   }
 }

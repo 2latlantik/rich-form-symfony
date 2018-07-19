@@ -2,6 +2,8 @@ framework:
   secret: abcd
   test: ~
   form: true
+  templating:
+          engines: ['twig']
 
 twig:
   paths: ['%kernel.project_dir%/templates']
