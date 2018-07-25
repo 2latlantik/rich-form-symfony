@@ -2,16 +2,12 @@
 namespace Delatlantik\RichFormSymfonyBundle\Form;
 
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * Class InputTypeExtension
- * @package Delatlantik\RichFormSymfonyBundle\Form
- */
-class InputTypeExtension extends AbstractTypeExtension
+class TextareaTypeExtension extends AbstractTypeExtension
 {
 
     /**
@@ -21,7 +17,7 @@ class InputTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType(): string
     {
-        return TextType::class;
+        return TextareaType::class;
     }
 
     /**

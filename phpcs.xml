@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+    <arg name="colors" />
+    <arg value="p" />
+
+    <file>Form/</file>
+    <file>Tests/</file>
+
+    <exclude-pattern>Tests/App/cache</exclude-pattern>
+
+    <rule ref="PSR2"/>
+
+</ruleset>

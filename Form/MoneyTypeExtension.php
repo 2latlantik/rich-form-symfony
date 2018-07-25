@@ -2,16 +2,16 @@
 namespace Delatlantik\RichFormSymfonyBundle\Form;
 
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class InputTypeExtension
+ * Class MoneyTypeExtension
  * @package Delatlantik\RichFormSymfonyBundle\Form
  */
-class InputTypeExtension extends AbstractTypeExtension
+class MoneyTypeExtension extends AbstractTypeExtension
 {
 
     /**
@@ -21,7 +21,7 @@ class InputTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType(): string
     {
-        return TextType::class;
+        return MoneyType::class;
     }
 
     /**
@@ -41,6 +41,8 @@ class InputTypeExtension extends AbstractTypeExtension
     {
         if (isset($options['ico'])) {
             $view->vars['ico'] = $options['ico'];
+        } else {
+            $view->vars['ico'] = 'money';
         }
     }
 }

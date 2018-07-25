@@ -1,4 +1,13 @@
 services:
   Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension:
     tags:
-      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType}
+      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
+  Delatlantik\RichFormSymfonyBundle\Form\MoneyTypeExtension:
+    tags:
+      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\MoneyType }
+  Delatlantik\RichFormSymfonyBundle\Form\TextareaTypeExtension:
+    tags:
+      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextareaType }
+  Delatlantik\RichFormSymfonyBundle\Form\ChoiceTypeExtension:
+    tags:
+        - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ChoiceType }

@@ -1,2 +1,4 @@
+.idea
+/Tests/App/cache
 /vendor
-/tests/App/cache
+.composer.lock

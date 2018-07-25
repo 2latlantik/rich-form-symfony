@@ -1,0 +1,74 @@
+{% use "bootstrap_4_layout.html.twig" %}
+
+{% block text_widget %}
+    {% spaceless %}
+        {{ block('pre_simple') }}
+        {{ block('form_widget_simple')}}
+        {{ block('post_simple') }}
+    {% endspaceless %}
+{% endblock %}
+
+{% block textarea_widget %}
+    {% spaceless %}
+        {{ block('pre_simple') }}
+        {{- parent() -}}
+        {{ block('post_simple') }}
+    {% endspaceless %}
+{% endblock %}
+
+{%- block choice_widget_collapsed -%}
+    {% spaceless %}
+        {{ block('pre_simple') }}
+        {{- parent() -}}
+        {{ block('post_simple') }}
+    {% endspaceless %}
+{%- endblock -%}
+
+{% block money_widget -%}
+    {%- set prepend = not (money_pattern starts with '{{') -%}
+    {%- set append = not (money_pattern ends with '}}') -%}
+    {%- if prepend or append or ico -%}
+        <div class="input-group{{ group_class|default('') }}">
+            {%- if prepend or ico -%}
+                <div class="input-group-prepend">
+            {%- endif -%}
+            {%- if prepend -%}
+                <span class="input-group-text">{{ money_pattern|form_encode_currency }}</span>
+            {%- endif -%}
+            {%- if ico  -%}
+                <span class="input-group-text"><i class="fa fa-{{ ico }}" aria-hidden="true"></i></span>
+            {%- endif -%}
+            {%- if prepend or ico -%}
+                </div>
+            {%- endif -%}
+            {{- block('form_widget_simple') -}}
+            {%- if append -%}
+                <div class="input-group-append"><span class="input-group-text">{{ money_pattern|form_encode_currency }}</span></div>
+            {%- endif -%}
+        </div>
+    {%- else -%}
+        {{- block('form_widget_simple') -}}
+    {%- endif -%}
+{%- endblock money_widget %}
+
+
+{% block pre_simple %}
+    {% spaceless %}
+        {% if ico %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-{{ ico }}" aria-hidden="true"></i>
+                    </span>
+                </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+
+{% block post_simple %}
+    {% spaceless %}
+        {% if ico %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

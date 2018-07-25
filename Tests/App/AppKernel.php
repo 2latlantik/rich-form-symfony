@@ -25,21 +25,28 @@ class AppKernel extends Kernel
     }
 
     /**
-     * Loads the container configuration.
+     * @param LoaderInterface $loader
+     * @throws \Exception
      */
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/config/config.yml');
     }
 
+    /**
+     * @param ContainerBuilder $container
+     * @param LoaderInterface $loader
+     * @throws \Exception
+     */
     public function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
     {
-        // load only the config files strictly needed for the API
         $confDir = $this->getProjectDir().'/config';
         $loader->load($confDir.'/config.yml', 'glob');
-
     }
 
+    /**
+     * @return bool|string
+     */
     public function getProjectDir()
     {
         return realpath(__DIR__);
