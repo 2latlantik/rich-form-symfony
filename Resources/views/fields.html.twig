@@ -54,7 +54,7 @@
 
 {% block pre_simple %}
     {% spaceless %}
-        {% if ico %}
+        {% if ico is defined %}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -67,7 +67,7 @@
 
 {% block post_simple %}
     {% spaceless %}
-        {% if ico %}
+        {% if ico is defined %}
             </div>
         {% endif %}
     {% endspaceless %}
