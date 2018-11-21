@@ -51,6 +51,15 @@
     {%- endif -%}
 {%- endblock money_widget %}
 
+{% block date_widget %}
+    {% if widget == 'single_text' %}
+        {{ block('pre_simple') }}
+    {% endif %}
+    {{- parent() -}}
+    {% if widget == 'single_text' %}
+        {{ block('post_simple') }}
+    {% endif %}
+{% endblock %}
 
 {% block pre_simple %}
     {% spaceless %}
