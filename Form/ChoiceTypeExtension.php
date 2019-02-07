@@ -15,13 +15,11 @@ class ChoiceTypeExtension extends AbstractTypeExtension
 {
 
     /**
-     * Returns the name of the type being extended.
-     *
-     * @return string The name of the type being extended
+     * @return iterable
      */
-    public function getExtendedType(): string
+    public function getExtendedTypes(): iterable
     {
-        return ChoiceType::class;
+        return [ChoiceType::class];
     }
 
     /**
