@@ -6,6 +6,7 @@ use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Delatlantik\RichFormSymfonyBundle\RichFormSymfonyBundle;
 
 class AppKernel extends Kernel
 {
@@ -20,7 +21,7 @@ class AppKernel extends Kernel
         return [
             new FrameworkBundle(),
             new TwigBundle(),
-            new \Delatlantik\RichFormSymfonyBundle\RichFormSymfonyBundle()
+            new RichFormSymfonyBundle()
         ];
     }
 

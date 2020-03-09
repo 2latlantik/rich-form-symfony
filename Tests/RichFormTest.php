@@ -14,6 +14,7 @@ use Delatlantik\RichFormSymfonyBundle\Tests\App\AppKernel;
  */
 class RichFormTest extends WebTestCase
 {
+
     /**
      * @var $formBuilder
      */
@@ -23,7 +24,6 @@ class RichFormTest extends WebTestCase
      * @var $twig
      */
     protected $twig;
-
 
     protected function setUp()
     {
@@ -40,7 +40,6 @@ class RichFormTest extends WebTestCase
 
     public function testWithTextType(): void
     {
-
         $form = $this->formBuilder
             ->add('input', TextType::class, [
                 'ico' => 'pencil'

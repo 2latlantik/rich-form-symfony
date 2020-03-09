@@ -1,27 +1,27 @@
 {% use "bootstrap_4_layout.html.twig" %}
 
 {% block text_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         {{ block('pre_simple') }}
         {{ block('form_widget_simple')}}
         {{ block('post_simple') }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {% block textarea_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         {{ block('pre_simple') }}
         {{- parent() -}}
         {{ block('post_simple') }}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {%- block choice_widget_collapsed -%}
-    {% spaceless %}
+    {% apply spaceless %}
         {{ block('pre_simple') }}
         {{- parent() -}}
         {{ block('post_simple') }}
-    {% endspaceless %}
+    {% endapply %}
 {%- endblock -%}
 
 {% block money_widget -%}
@@ -62,7 +62,7 @@
 {% endblock %}
 
 {% block pre_simple %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if ico is defined %}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -71,13 +71,13 @@
                     </span>
                 </div>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {% block post_simple %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if ico is defined %}
             </div>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}

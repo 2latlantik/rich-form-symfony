@@ -2,11 +2,11 @@ framework:
   secret: abcd
   test: ~
   form: true
-  templating:
-    engines: ['twig']
+  #templating:
+  #  engines: ['twig']
 
 twig:
   paths: ['%kernel.project_dir%/templates']
   form_themes:
-      - bootstrap_4_layout.html.twig
-      - "@RichFormSymfonyBundle/Resources/views/fields.html.twig"
+     - bootstrap_4_layout.html.twig
+     - '@RichFormSymfony/fields.html.twig'

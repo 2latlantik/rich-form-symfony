@@ -6,7 +6,7 @@
     <file>Form/</file>
     <file>Tests/</file>
 
-    <exclude-pattern>Tests/App/cache</exclude-pattern>
+    <exclude-pattern>Tests/App/var</exclude-pattern>
 
     <rule ref="PSR2"/>
 

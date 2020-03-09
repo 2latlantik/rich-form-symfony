@@ -1,4 +1,4 @@
 .idea
-/Tests/App/cache
+/Tests/App/var
 /vendor
 .composer.lock
