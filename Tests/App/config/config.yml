@@ -10,3 +10,6 @@ twig:
   form_themes:
      - bootstrap_4_layout.html.twig
      - '@RichFormSymfony/fields.html.twig'
+
+rich_form_symfony:
+  bootstrap_version: 4

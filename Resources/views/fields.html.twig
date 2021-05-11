@@ -65,11 +65,15 @@
     {% apply spaceless %}
         {% if ico is defined %}
             <div class="input-group mb-3">
+                {% if bootstrap_version is defined and bootstrap_version == '4' %}
                 <div class="input-group-prepend">
+                {% endif %}
                     <span class="input-group-text">
                         <i class="fa fa-{{ ico }}" aria-hidden="true"></i>
                     </span>
+                {% if bootstrap_version is defined and bootstrap_version == '4' %}
                 </div>
+                {% endif %}
         {% endif %}
     {% endapply %}
 {% endblock %}

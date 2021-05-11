@@ -15,6 +15,16 @@ class MoneyTypeExtension extends AbstractTypeExtension
 {
 
     /**
+     * @var string
+     */
+    private $bootstrap_version;
+
+    public function __construct($bootstrap_version)
+    {
+        $this->bootstrap_version = $bootstrap_version;
+    }
+
+    /**
      * @return iterable
      */
     public static function getExtendedTypes(): iterable
@@ -42,5 +52,6 @@ class MoneyTypeExtension extends AbstractTypeExtension
         } else {
             $view->vars['ico'] = 'money';
         }
+        $view->vars['bootstrap_version'] = $this->bootstrap_version;
     }
 }

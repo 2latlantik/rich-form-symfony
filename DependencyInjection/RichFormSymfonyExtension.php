@@ -20,6 +20,10 @@ class RichFormSymfonyExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter('rich_form_symfony.bootstrap_version', $config['bootstrap_version']);
 
         $loader = new YamlFileLoader(
             $container,

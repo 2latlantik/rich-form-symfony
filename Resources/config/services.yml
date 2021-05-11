@@ -1,16 +1,26 @@
 services:
   Delatlantik\RichFormSymfonyBundle\Form\InputTypeExtension:
+    arguments:
+      - '%rich_form_symfony.bootstrap_version%'
     tags:
       - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
   Delatlantik\RichFormSymfonyBundle\Form\MoneyTypeExtension:
+    arguments:
+      - '%rich_form_symfony.bootstrap_version%'
     tags:
       - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\MoneyType }
   Delatlantik\RichFormSymfonyBundle\Form\TextareaTypeExtension:
+    arguments:
+      - '%rich_form_symfony.bootstrap_version%'
     tags:
       - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextareaType }
   Delatlantik\RichFormSymfonyBundle\Form\ChoiceTypeExtension:
+    arguments:
+      - '%rich_form_symfony.bootstrap_version%'
     tags:
         - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ChoiceType }
   Delatlantik\RichFormSymfonyBundle\Form\DateTypeExtension:
-      tags:
-          - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\DateType }
+    arguments:
+      - '%rich_form_symfony.bootstrap_version%'
+    tags:
+      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\DateType }
