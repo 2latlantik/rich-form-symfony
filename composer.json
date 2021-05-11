@@ -1,7 +1,7 @@
 {
   "name": "2latlantik/rich-form-symfony",
   "type": "library",
-  "description": "",
+  "description": "Combine FontAwesome icons and Bootstrap Forms",
   "authors": [
     {
       "name": "Nicolas",
